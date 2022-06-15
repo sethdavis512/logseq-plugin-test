@@ -1,3 +1,3 @@
-# logseq-test
+# logseq-plugin-test
 
 Test 1-2-3...
