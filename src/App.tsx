@@ -1,6 +1,15 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import useAppVisible from './hooks/useAppVisible';
 import styled, { createGlobalStyle } from 'styled-components';
+// Import the Slate editor factory.
+import { createEditor } from 'slate';
+
+// Import the Slate components and React plugin.
+import { Slate, Editable, withReact } from 'slate-react';
+// TypeScript users only add this code
+import type { BaseEditor, Descendant } from 'slate';
+import type { ReactEditor } from 'slate-react';
+
 import '@logseq/libs';
 
 const GlobalStyle = createGlobalStyle`
@@ -44,10 +53,22 @@ const Pre = styled.pre`
     border: 1px solid #808080;
 `;
 
+type CustomElement = { type: 'paragraph'; children: CustomText[] };
+type CustomText = { text: string };
+
+declare module 'slate' {
+    interface CustomTypes {
+        Editor: BaseEditor & ReactEditor;
+        Element: CustomElement;
+        Text: CustomText;
+    }
+}
+
 const Code = styled.code``;
 
 export function App() {
     const visible = useAppVisible();
+    const editor = useState(() => withReact(createEditor()));
 
     const handleCloseClick = () => {
         window.logseq.hideMainUI();
