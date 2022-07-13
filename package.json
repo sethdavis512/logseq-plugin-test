@@ -12,6 +12,7 @@
     },
     "scripts": {
         "start": "parcel --public-url ./",
+        "watch": "parcel watch --public-url ./",
         "build": "parcel build --public-url ./"
     },
     "keywords": [],
@@ -23,6 +24,8 @@
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-use": "^17.4.0",
+        "slate": "^0.81.1",
+        "slate-react": "^0.81.0",
         "styled-components": "^5.3.5"
     },
     "devDependencies": {
