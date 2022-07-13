@@ -18,12 +18,18 @@ const main = () => {
         zIndex: 11
     });
 
-    const openIconName = 'shauns-logseq-open-plugin';
+    const openIconName = 'text-style-logseq-open-plugin';
 
     logseq.App.registerUIItem('toolbar', {
         key: openIconName,
         template: `
-            <div data-on-click="show" class="${openIconName}">⚙️</div>
+        <div id="injected-ui-item-open-text-style" title="open-text-style" class="injected-ui-item-toolbar">    
+            <div id="logseq-text-style--open-calendar" class="${openIconName}" data-injected-ui="logseq-text-style--open-calendar">
+                <a data-rect="" data-on-click="show" class="button">
+                    <i class="ti ti-typography"></i> 
+                </a>
+            </div>
+        </div>
         `
     });
 };

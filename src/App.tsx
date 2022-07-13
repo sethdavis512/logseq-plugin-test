@@ -71,7 +71,7 @@ export function App() {
     return (
         <>
             <GlobalStyle />
-            <Header>Shaun's Logseq Plugin</Header>
+            <Header>Text Style Plugin for Logseq</Header>
             <Main>
                 <PageHeading>Welcome to [[Logseq]] Plugins!</PageHeading>
                 <p>Logseq ID: {logseq.baseInfo.id}</p>
