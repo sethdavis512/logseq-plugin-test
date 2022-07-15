@@ -182,30 +182,38 @@ const main = () => {
         --radius-4: 0.5rem;   // 8px
         --radius-5: 1rem;     // 16px
         --radius-full: 100%;
-
-        /*
-        –––––––––––––––––––––––––––––––
-        | TOOLBAR VARIABLES |
-        –––––––––––––––––––––––––––––––
-        */
-        /* DARK */
-        /* 
-        --text-style-toolbar-background: var(--color-gray-70);
-        --text-style-button-background: var(--color-gray-70);
-        --text-style-button-background-hover: var(--color-gray-100);
-        --text-style-button-background-selected: var(--color-gray-2);
-        --text-style-button-background-selected-hover: var(--color-gray-20);
-        */
-
-        /* LIGHT */
+    }
+    html[data-theme="light"] {
         --text-style-toolbar-background: var(--color-gray-5);
         --text-style-button-background: var(--color-gray-5);
-        --text-style-button-icon: var(--color-gray-80);
-        --text-style-button-background-hover: var(--color-gray-20);
-        --text-style-button-background-selected: var(--color-gray-70);
         --text-style-button-icon-selected: var(--color-gray-5);
-        --text-style-button-background-selected-hover: var(--color-gray-100);
+
+        --text-style-toolbar-shadow: 0 1px 3px var(--color-gray-20);
+
+        --text-style-button-icon: var(--color-gray-80);
+        --text-style-button-color: var(--color-gray-80);
+
+        --text-style-button-background-hover: var(--color-gray-20);
         --text-style-divider-background: var(--color-gray-20);
+
+        --text-style-button-background-selected: var(--color-gray-70);
+        --text-style-button-background-selected-hover: var(--color-gray-100);
+    }
+    html[data-theme="dark"] {
+        --text-style-toolbar-background: var(--color-gray-70);
+        --text-style-button-background: var(--color-gray-70);
+        --text-style-button-icon-selected: var(--color-gray-80);
+
+        --text-style-toolbar-shadow: 0 1px 3px var(--color-gray-100);
+        
+        --text-style-button-icon: var(--color-gray-5);
+        --text-style-button-color: var(--color-gray-5);
+
+        --text-style-button-background-hover: var(--color-gray-100);
+        --text-style-divider-background: var(--color-gray-60);
+
+        --text-style-button-background-selected: var(--color-gray-2);
+        --text-style-button-background-selected-hover: var(--color-gray-20);   
     }
     .draggable-handle,
     .resizable-handle {
@@ -225,7 +233,7 @@ const main = () => {
         width: auto;
         height: 40px;
         padding: var(--space-3);
-        box-shadow: 0 1px 3px var(--color-gray-20);
+        box-shadow: var(--text-style-toolbar-shadow);
     }
     .text-style-icon {
         width: var(--space-8);
@@ -242,6 +250,7 @@ const main = () => {
         cursor: pointer;
         background: var(--text-style-button-background);
         white-space: nowrap;
+        color: var(--text-style-button-color);
     }
     
     .text-style-button {
@@ -340,7 +349,7 @@ const main = () => {
                     </svg>
                 </button>
                 <div class="text-style-divider"></div>
-                <button class="text-style-button selected">
+                <button class="text-style-button">
                     <!-- bold -->
                     <svg class="text-style-icon" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M14.45 11.61c.49-.57.8-1.3.8-2.11 0-1.79-1.46-3.25-3.25-3.25H8.5c-.41 0-.75.34-.75.75v10c0 .41.34.75.75.75H13c1.79 0 3.25-1.46 3.25-3.25 0-1.27-.74-2.36-1.8-2.89zM13 15.75H9.75V13H13c.69 0 1.25.62 1.25 1.38 0 .76-.56 1.37-1.25 1.37zM12 11H9.75V8.25H12c.69 0 1.25.62 1.25 1.38 0 .76-.56 1.37-1.25 1.37z"/>
@@ -369,6 +378,12 @@ const main = () => {
                     <svg class="text-style-icon" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M7 9.75A2.246 2.246 0 004.75 12 2.246 2.246 0 007 14.25h3a.75.75 0 010 1.5H7A3.746 3.746 0 013.25 12 3.746 3.746 0 017 8.25h3a.75.75 0 010 1.5H7zM13.25 9a.75.75 0 01.75-.75h3A3.746 3.746 0 0120.75 12 3.746 3.746 0 0117 15.75h-3a.75.75 0 010-1.5h3A2.246 2.246 0 0019.25 12 2.246 2.246 0 0017 9.75h-3a.75.75 0 01-.75-.75z"/>
                         <path d="M9 11.25a.75.75 0 000 1.5h6a.75.75 0 000-1.5H9z"/>
+                    </svg>
+                </button>
+                <button class="text-style-button">
+                    <!-- code -->
+                    <svg class="text-style-icon" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.065 19.65l5.997-16.002 1.873.701-5.997 16.003-1.873-.701zM5.21 12.005l3-3-1.42-1.41-4.41 4.41 4.41 4.42 1.42-1.42-3-3zm12-4.41l-1.42 1.41 3 3-3 3 1.42 1.42 4.41-4.42-4.41-4.41z"/>
                     </svg>
                 </button>
                 <div class="text-style-divider"></div>
