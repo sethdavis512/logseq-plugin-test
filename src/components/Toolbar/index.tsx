@@ -3,7 +3,7 @@ import Button from '../Button';
 import CaretDown from '../icons/CaretDown';
 import Bold from '../icons/Bold';
 import Italic from '../icons/Italic';
-import Underline from '../icons/Underline';
+import Code from '../icons/Code';
 import Strike from '../icons/Strike';
 import Link from '../icons/Link';
 import CharacterColor from '../icons/CharacterColor';
@@ -46,15 +46,15 @@ const Toolbar: React.FunctionComponent = () => {
       </Button> 
       <Button variant="hollow">
         <Italic />
-      </Button> 
-      <Button variant="hollow">
-        <Underline />
-      </Button> 
+      </Button>
       <Button variant="hollow">
         <Strike />
       </Button> 
       <Button variant="hollow">
         <Link />
+      </Button> 
+      <Button variant="hollow">
+        <Code />
       </Button> 
       <Box sx={{
         width: 'space.1',
