@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import '@logseq/libs';
 import { App } from './App';
+import Toolbar from './components/Toolbar';
 
 const TOOLBAR_ID = "text-style-toolbar"
 let toolbar
@@ -199,10 +200,12 @@ const main = () => {
         /* LIGHT */
         --text-style-toolbar-background: var(--color-gray-5);
         --text-style-button-background: var(--color-gray-5);
+        --text-style-button-icon: var(--color-gray-80);
         --text-style-button-background-hover: var(--color-gray-20);
         --text-style-button-background-selected: var(--color-gray-70);
+        --text-style-button-icon-selected: var(--color-gray-5);
         --text-style-button-background-selected-hover: var(--color-gray-100);
-        --text-style-divider-background: var(--color-gray-10);
+        --text-style-divider-background: var(--color-gray-20);
     }
     .draggable-handle,
     .resizable-handle {
@@ -219,14 +222,15 @@ const main = () => {
         display: flex;
         gap: var(--space-3);
         align-items: center;
-        width: 400px;
+        width: auto;
         height: 40px;
-        padding: 4px;
+        padding: var(--space-3);
         box-shadow: 0 1px 3px var(--color-gray-20);
     }
     .text-style-icon {
         width: var(--space-8);
         height: var(--space-8);
+        fill: var(--text-style-button-icon);
     }
     .text-style-dropdown {
         display: flex;
@@ -237,7 +241,9 @@ const main = () => {
         border-radius: var(--radius-3);
         cursor: pointer;
         background: var(--text-style-button-background);
+        white-space: nowrap;
     }
+    
     .text-style-button {
         width: var(--space-9);
         height: var(--space-9);
@@ -246,20 +252,26 @@ const main = () => {
         cursor: pointer;
         background: var(--text-style-button-background);
     }
-    .text-style-button:hover {
+    .text-style-button:hover,
+    .text-style-dropdown:hover {
         background: var(--text-style-button-background-hover);
     }
     .text-style-button.selected {
         background: var(--text-style-button-background-selected);
+    }
+    .text-style-button.selected .text-style-icon {
+        fill: var(--text-style-button-icon-selected);
     }
     .text-style-button.selected:hover {
         background: var(--text-style-button-background-selected-hover);
     }
     .text-style-divider {
         width: var(--space-1);
-        height: var(--space-9);
+        height: var(--space-8);
         background: var(--text-style-divider-background);
+        margin: 0 var(--space-2);
     }
+    
     .text-style-tb-item:hover {
         filter: drop-shadow(0 0 3px #fff);
     }
@@ -324,50 +336,50 @@ const main = () => {
                     <span>Paragraph</span>
                     <!-- caret-down -->
                     <svg class="text-style-icon" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M8 9.75a.75.75 0 00-.586 1.219l4 5a.75.75 0 001.172 0l4-5A.75.75 0 0016 9.75H8z" fill="#2D2E2F"/>
+                        <path d="M8 9.75a.75.75 0 00-.586 1.219l4 5a.75.75 0 001.172 0l4-5A.75.75 0 0016 9.75H8z"/>
                     </svg>
                 </button>
                 <div class="text-style-divider"></div>
-                <button class="text-style-button">
+                <button class="text-style-button selected">
                     <!-- bold -->
                     <svg class="text-style-icon" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M14.45 11.61c.49-.57.8-1.3.8-2.11 0-1.79-1.46-3.25-3.25-3.25H8.5c-.41 0-.75.34-.75.75v10c0 .41.34.75.75.75H13c1.79 0 3.25-1.46 3.25-3.25 0-1.27-.74-2.36-1.8-2.89zM13 15.75H9.75V13H13c.69 0 1.25.62 1.25 1.38 0 .76-.56 1.37-1.25 1.37zM12 11H9.75V8.25H12c.69 0 1.25.62 1.25 1.38 0 .76-.56 1.37-1.25 1.37z" fill="#2D2E2F"/>
+                        <path d="M14.45 11.61c.49-.57.8-1.3.8-2.11 0-1.79-1.46-3.25-3.25-3.25H8.5c-.41 0-.75.34-.75.75v10c0 .41.34.75.75.75H13c1.79 0 3.25-1.46 3.25-3.25 0-1.27-.74-2.36-1.8-2.89zM13 15.75H9.75V13H13c.69 0 1.25.62 1.25 1.38 0 .76-.56 1.37-1.25 1.37zM12 11H9.75V8.25H12c.69 0 1.25.62 1.25 1.38 0 .76-.56 1.37-1.25 1.37z"/>
                     </svg>
                 </button>
                 <button class="text-style-button">
                     <!-- italic -->
                     <svg class="text-style-icon" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M13.014 6.25H16a.75.75 0 010 1.5h-2.385l-1.7 8.5H14a.75.75 0 010 1.5H8a.75.75 0 010-1.5h2.385l1.7-8.5H10a.75.75 0 110-1.5h3.014z" fill="#2D2E2F"/>
+                        <path d="M13.014 6.25H16a.75.75 0 010 1.5h-2.385l-1.7 8.5H14a.75.75 0 010 1.5H8a.75.75 0 010-1.5h2.385l1.7-8.5H10a.75.75 0 110-1.5h3.014z"/>
                     </svg>
                 </button>
                 <button class="text-style-button">
                     <!-- underline -->
                     <svg class="text-style-icon" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9.25 7a.75.75 0 00-1.5 0v5.5A4.254 4.254 0 0012 16.75a4.254 4.254 0 004.25-4.25V7a.75.75 0 00-1.5 0v5.5A2.754 2.754 0 0112 15.25a2.754 2.754 0 01-2.75-2.75V7zM8.5 18.25a.75.75 0 000 1.5h7a.75.75 0 000-1.5h-7z" fill="#2D2E2F"/>
+                        <path d="M9.25 7a.75.75 0 00-1.5 0v5.5A4.254 4.254 0 0012 16.75a4.254 4.254 0 004.25-4.25V7a.75.75 0 00-1.5 0v5.5A2.754 2.754 0 0112 15.25a2.754 2.754 0 01-2.75-2.75V7zM8.5 18.25a.75.75 0 000 1.5h7a.75.75 0 000-1.5h-7z"/>
                     </svg>
                 </button>
                 <button class="text-style-button">
                     <!-- strike -->
                     <svg class="text-style-icon" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 7.75c-1.238 0-1.75.76-1.75 1.25 0 .15.015.283.037.402a.75.75 0 01-1.474.276A3.67 3.67 0 018.75 9c0-1.51 1.388-2.75 3.25-2.75.932 0 1.595.316 2.031.664a2.666 2.666 0 01.586.654l.034.06.012.02.004.01.002.003.001.002s0 .002-.661.333l.662-.331a.75.75 0 01-1.335.684l-.002-.003a1.167 1.167 0 00-.24-.26c-.19-.152-.526-.336-1.094-.336zM6.25 12a.75.75 0 01.75-.75h10a.75.75 0 010 1.5h-1.752c.32.47.502 1.047.502 1.75 0 1.023-.518 1.853-1.227 2.404A4.16 4.16 0 0112 17.75c-1.11 0-2.012-.462-2.61-.89a5.639 5.639 0 01-.896-.798 2.976 2.976 0 01-.054-.063l-.017-.02-.005-.006-.002-.003c-.001 0-.002-.002.584-.47l-.586.469a.75.75 0 011.17-.94l.004.005.029.033a4.135 4.135 0 00.644.572c.45.323 1.05.611 1.739.611.593 0 1.178-.2 1.602-.53.416-.323.648-.743.648-1.22 0-.54-.168-.862-.405-1.103-.244-.248-.6-.448-1.073-.647H7a.75.75 0 01-.75-.75z" fill="#2D2E2F"/>
+                        <path d="M12 7.75c-1.238 0-1.75.76-1.75 1.25 0 .15.015.283.037.402a.75.75 0 01-1.474.276A3.67 3.67 0 018.75 9c0-1.51 1.388-2.75 3.25-2.75.932 0 1.595.316 2.031.664a2.666 2.666 0 01.586.654l.034.06.012.02.004.01.002.003.001.002s0 .002-.661.333l.662-.331a.75.75 0 01-1.335.684l-.002-.003a1.167 1.167 0 00-.24-.26c-.19-.152-.526-.336-1.094-.336zM6.25 12a.75.75 0 01.75-.75h10a.75.75 0 010 1.5h-1.752c.32.47.502 1.047.502 1.75 0 1.023-.518 1.853-1.227 2.404A4.16 4.16 0 0112 17.75c-1.11 0-2.012-.462-2.61-.89a5.639 5.639 0 01-.896-.798 2.976 2.976 0 01-.054-.063l-.017-.02-.005-.006-.002-.003c-.001 0-.002-.002.584-.47l-.586.469a.75.75 0 011.17-.94l.004.005.029.033a4.135 4.135 0 00.644.572c.45.323 1.05.611 1.739.611.593 0 1.178-.2 1.602-.53.416-.323.648-.743.648-1.22 0-.54-.168-.862-.405-1.103-.244-.248-.6-.448-1.073-.647H7a.75.75 0 01-.75-.75z"/>
                     </svg>
                 </button>
                 <button class="text-style-button">
                     <!-- link -->
                     <svg class="text-style-icon" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M7 9.75A2.246 2.246 0 004.75 12 2.246 2.246 0 007 14.25h3a.75.75 0 010 1.5H7A3.746 3.746 0 013.25 12 3.746 3.746 0 017 8.25h3a.75.75 0 010 1.5H7zM13.25 9a.75.75 0 01.75-.75h3A3.746 3.746 0 0120.75 12 3.746 3.746 0 0117 15.75h-3a.75.75 0 010-1.5h3A2.246 2.246 0 0019.25 12 2.246 2.246 0 0017 9.75h-3a.75.75 0 01-.75-.75z" fill="#2D2E2F"/>
-                        <path d="M9 11.25a.75.75 0 000 1.5h6a.75.75 0 000-1.5H9z" fill="#2D2E2F"/>
+                        <path d="M7 9.75A2.246 2.246 0 004.75 12 2.246 2.246 0 007 14.25h3a.75.75 0 010 1.5H7A3.746 3.746 0 013.25 12 3.746 3.746 0 017 8.25h3a.75.75 0 010 1.5H7zM13.25 9a.75.75 0 01.75-.75h3A3.746 3.746 0 0120.75 12 3.746 3.746 0 0117 15.75h-3a.75.75 0 010-1.5h3A2.246 2.246 0 0019.25 12 2.246 2.246 0 0017 9.75h-3a.75.75 0 01-.75-.75z"/>
+                        <path d="M9 11.25a.75.75 0 000 1.5h6a.75.75 0 000-1.5H9z"/>
                     </svg>
                 </button>
                 <div class="text-style-divider"></div>
                 <button class="text-style-dropdown">
                     <!-- character-color -->
                     <svg class="text-style-icon" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="m16.69 16.19-4-9c-.02-.03-.05-.05-.07-.09a.642.642 0 0 0-.1-.13c-.03-.04-.08-.06-.12-.09-.04-.02-.06-.05-.1-.07h-.02a.75.75 0 0 0-.16-.04.502.502 0 0 0-.12-.02c-.04 0-.08.01-.12.02-.06.01-.11.02-.17.04h-.02c-.03.02-.05.05-.08.07a.42.42 0 0 0-.14.09c-.04.04-.06.09-.09.13-.02.04-.05.06-.07.09l-4 9c-.17.38 0 .82.38.99a.763.763 0 0 0 .99-.39l.92-2.04h4.8l.91 2.05c.12.28.4.45.69.45.1 0 .21-.02.3-.06.38-.18.55-.62.39-1Zm-6.42-2.94L12 9.35l1.73 3.9h-3.46Z" fill="#2D2E2F"/>
+                        <path d="m16.69 16.19-4-9c-.02-.03-.05-.05-.07-.09a.642.642 0 0 0-.1-.13c-.03-.04-.08-.06-.12-.09-.04-.02-.06-.05-.1-.07h-.02a.75.75 0 0 0-.16-.04.502.502 0 0 0-.12-.02c-.04 0-.08.01-.12.02-.06.01-.11.02-.17.04h-.02c-.03.02-.05.05-.08.07a.42.42 0 0 0-.14.09c-.04.04-.06.09-.09.13-.02.04-.05.06-.07.09l-4 9c-.17.38 0 .82.38.99a.763.763 0 0 0 .99-.39l.92-2.04h4.8l.91 2.05c.12.28.4.45.69.45.1 0 .21-.02.3-.06.38-.18.55-.62.39-1Zm-6.42-2.94L12 9.35l1.73 3.9h-3.46Z"/>
                     </svg>
                     <!-- caret-down -->
                     <svg class="text-style-icon" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M8 9.75a.75.75 0 00-.586 1.219l4 5a.75.75 0 001.172 0l4-5A.75.75 0 0016 9.75H8z" fill="#2D2E2F"/>
+                        <path d="M8 9.75a.75.75 0 00-.586 1.219l4 5a.75.75 0 001.172 0l4-5A.75.75 0 0016 9.75H8z"/>
                     </svg>
                 </button>
             </div>
