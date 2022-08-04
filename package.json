@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "",
     "logseq": {
-        "id": "_t5nh2aavj"
+        "id": "text-style-logseq-plugin"
     },
     "main": "dist/index.html",
     "source": "src/index.html",
@@ -19,9 +19,11 @@
     "author": "Seth Davis",
     "license": "ISC",
     "dependencies": {
+        "@emotion/react": "^11.4.0",
         "@emotion/styled": "^11.3.0",
+        "@emotion/styled-base": "^11.0.0",
         "@logseq/libs": "^0.0.6",
-        "@types/styled-components": "^5.1.25",
+        "@styled-system/css": "5.0.23",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-use": "^17.4.0",
@@ -32,6 +34,8 @@
     "devDependencies": {
         "@types/react": "^18.0.12",
         "@types/react-dom": "^18.0.5",
+        "@types/styled-components": "^5.1.25",
+        "@types/styled-system__css": "^5.0.16", 
         "parcel": "^2.6.0",
         "process": "^0.11.10"
     }

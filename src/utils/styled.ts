@@ -1,8 +1,25 @@
+// import {Resolver} from '@parcel/plugin';
+// import path from 'path';
+
 import { css, SystemStyleObject } from '@styled-system/css';
 import { CSSObject } from '@emotion/styled';
 import { ElementType } from 'react';
 
 import { Theme } from '../utils/theme';
+
+// export default new Resolver({
+//   async resolve({specifier}) {
+//     if (specifier === '@styled-system/css') {
+//       return {
+//         filePath: '@types/styled-systemcss__'
+//       };
+//     }
+
+//     // Let the next resolver in the pipeline handle 
+//     // this dependency.
+//     return null;
+//   }
+// });
 
 export interface StyleProps {
   as?: ElementType;

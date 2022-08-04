@@ -184,6 +184,7 @@ const main = () => {
         --radius-full: 100%;
     }
     html[data-theme="light"] {
+        /* TOOLBAR STYLES */
         --text-style-toolbar-background: var(--color-gray-5);
         --text-style-button-background: var(--color-gray-5);
         --text-style-button-icon-selected: var(--color-gray-5);
@@ -198,8 +199,33 @@ const main = () => {
 
         --text-style-button-background-selected: var(--color-gray-70);
         --text-style-button-background-selected-hover: var(--color-gray-100);
+
+        /* TEXT COLOR + HIGHLIGHT */
+        --color-text-gray: #919191;
+        --color-text-orange: #EF5E25;
+        --color-text-red: #F45D79;
+        --color-text-yellow: #B38C00;
+        --color-text-green: #719F2A;
+        --color-text-mint: #00A871;
+        --color-text-cyan: #009EC1;
+        --color-text-blue: #2491FF;
+        --color-text-indigo: #967EFB;
+        --color-text-violet: #D85BEF;
+
+        --color-highlight-gray: #F0F0F0;
+        --color-highlight-orange: #FFF5EE;
+        --color-highlight-red: #FFF2F5;
+        --color-highlight-yellow: #FFF5C2;
+        --color-highlight-green: #DDF9C7;
+        --color-highlight-mint: #C9FBEB;
+        --color-highlight-cyan: #E5FAFF;
+        --color-highlight-blue: #E8F5FF;
+        --color-highlight-indigo: #F5F2FF;
+        --color-highlight-violet: #FEF2FF;
+
     }
     html[data-theme="dark"] {
+        /* TOOLBAR STYLES */
         --text-style-toolbar-background: var(--color-gray-70);
         --text-style-button-background: var(--color-gray-70);
         --text-style-button-icon-selected: var(--color-gray-80);
@@ -214,10 +240,34 @@ const main = () => {
 
         --text-style-button-background-selected: var(--color-gray-2);
         --text-style-button-background-selected-hover: var(--color-gray-20);   
+
+        /* TEXT COLOR + HIGHLIGHT */
+        --color-text-gray: #ADADAD;
+        --color-text-orange: #F39268;
+        --color-text-red: #FD8BA0;
+        --color-text-yellow: #DDAA01;
+        --color-text-green: #7FB135;
+        --color-text-mint: #04C585;
+        --color-text-cyan: #00BDE3;
+        --color-text-blue: #58B4FF;
+        --color-text-indigo: #B69FFF;
+        --color-text-violet: #EE83FF;
+        
+        --color-highlight-gray: #454545;
+        --color-highlight-orange: #63340F;
+        --color-highlight-red: #822133;
+        --color-highlight-yellow: #5C4809;
+        --color-highlight-green: #2F4A0B;
+        --color-highlight-mint: #0C4E29;
+        --color-highlight-cyan: #0E4F5C;
+        --color-highlight-blue: #0B4778;
+        --color-highlight-indigo: #3D2C9D;
+        --color-highlight-violet: #711E6C;
     }
     .draggable-handle,
     .resizable-handle {
         display: none;
+        touch-action: none;
     }
     #text-style-toolbar {
         position: absolute;
@@ -280,56 +330,32 @@ const main = () => {
         background: var(--text-style-divider-background);
         margin: 0 var(--space-2);
     }
-    
-    .text-style-tb-item:hover {
-        filter: drop-shadow(0 0 3px #fff);
+
+    .text-gray { color: var(--color-text-gray); }
+    .text-orange { color: var(--color-text-orange); }
+    .text-red { color: var(--color-text-red); }
+    .text-yellow { color: var(--color-text-yellow); }
+    .text-green { color: var(--color-text-green); }
+    .text-mint { color: var(--color-text-mint); }
+    .text-cyan { color: var(--color-text-cyan); }
+    .text-blue { color: var(--color-text-blue); }
+    .text-indigo { color: var(--color-text-indigo); }
+    .text-violet { color: var(--color-text-violet); }
+
+    [class^="highlight-"] {
+        padding: 0 var(--space-3);
+        border-radius: var(--space-3);
     }
-    .text-style-tb-item img {
-        width: 20px;
-        height: 20px;
-    }
-    mark {
-        background: #fef3ac !important;
-        color: #262626 !important;
-    }
-    span[data-ref="#red"],
-    span[data-ref="#green"],
-    span[data-ref="#blue"],
-    span[data-ref="$red"],
-    span[data-ref="$green"],
-    span[data-ref="$blue"] {
-        display: none;
-    }
-    span[data-ref="#red"] + mark {
-        background: #ffc7c7 !important;
-        color: #262626 !important;
-    }
-    span[data-ref="#green"] + mark {
-        background: #ccffc1 !important;
-        color: #262626 !important;
-    }
-    span[data-ref="#blue"] + mark {
-        background: #abdfff !important;
-        color: #262626 !important;
-    }
-    span[data-ref="$red"] + mark {
-      color: #f00 !important;
-      background: unset !important;
-      padding: 0;
-      border-radius: 0;
-    }
-    span[data-ref="$green"] + mark {
-      color: #0f0 !important;
-      background: unset !important;
-      padding: 0;
-      border-radius: 0;
-    }
-    span[data-ref="$blue"] + mark {
-      color: #00f !important;
-      background: unset !important;
-      padding: 0;
-      border-radius: 0;
-    }
+    .highlight-gray { background-color: var(--color-highlight-gray); }
+    .highlight-orange { background-color: var(--color-highlight-orange); }
+    .highlight-red { background-color: var(--color-highlight-red); }
+    .highlight-yellow { background-color: var(--color-highlight-yellow); }
+    .highlight-green { background-color: var(--color-highlight-green); }
+    .highlight-mint { background-color: var(--color-highlight-mint); }
+    .highlight-cyan { background-color: var(--color-highlight-cyan); }
+    .highlight-blue { background-color: var(--color-highlight-blue); }
+    .highlight-indigo { background-color: var(--color-highlight-indigo); }
+    .highlight-violet { background-color: var(--color-highlight-violet); }
   `);
 
     // parent.document.addEventListener("selectionchange", onSelectionChange)
@@ -339,67 +365,7 @@ const main = () => {
 
         logseq.provideUI({
             key: TOOLBAR_ID,
-            template: `
-            <div id="${TOOLBAR_ID}">
-                <button class="text-style-dropdown">
-                    <span>Paragraph</span>
-                    <!-- caret-down -->
-                    <svg class="text-style-icon" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M8 9.75a.75.75 0 00-.586 1.219l4 5a.75.75 0 001.172 0l4-5A.75.75 0 0016 9.75H8z"/>
-                    </svg>
-                </button>
-                <div class="text-style-divider"></div>
-                <button class="text-style-button">
-                    <!-- bold -->
-                    <svg class="text-style-icon" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M14.45 11.61c.49-.57.8-1.3.8-2.11 0-1.79-1.46-3.25-3.25-3.25H8.5c-.41 0-.75.34-.75.75v10c0 .41.34.75.75.75H13c1.79 0 3.25-1.46 3.25-3.25 0-1.27-.74-2.36-1.8-2.89zM13 15.75H9.75V13H13c.69 0 1.25.62 1.25 1.38 0 .76-.56 1.37-1.25 1.37zM12 11H9.75V8.25H12c.69 0 1.25.62 1.25 1.38 0 .76-.56 1.37-1.25 1.37z"/>
-                    </svg>
-                </button>
-                <button class="text-style-button">
-                    <!-- italic -->
-                    <svg class="text-style-icon" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M13.014 6.25H16a.75.75 0 010 1.5h-2.385l-1.7 8.5H14a.75.75 0 010 1.5H8a.75.75 0 010-1.5h2.385l1.7-8.5H10a.75.75 0 110-1.5h3.014z"/>
-                    </svg>
-                </button>
-                <button class="text-style-button">
-                    <!-- strike -->
-                    <svg class="text-style-icon" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 7.75c-1.238 0-1.75.76-1.75 1.25 0 .15.015.283.037.402a.75.75 0 01-1.474.276A3.67 3.67 0 018.75 9c0-1.51 1.388-2.75 3.25-2.75.932 0 1.595.316 2.031.664a2.666 2.666 0 01.586.654l.034.06.012.02.004.01.002.003.001.002s0 .002-.661.333l.662-.331a.75.75 0 01-1.335.684l-.002-.003a1.167 1.167 0 00-.24-.26c-.19-.152-.526-.336-1.094-.336zM6.25 12a.75.75 0 01.75-.75h10a.75.75 0 010 1.5h-1.752c.32.47.502 1.047.502 1.75 0 1.023-.518 1.853-1.227 2.404A4.16 4.16 0 0112 17.75c-1.11 0-2.012-.462-2.61-.89a5.639 5.639 0 01-.896-.798 2.976 2.976 0 01-.054-.063l-.017-.02-.005-.006-.002-.003c-.001 0-.002-.002.584-.47l-.586.469a.75.75 0 011.17-.94l.004.005.029.033a4.135 4.135 0 00.644.572c.45.323 1.05.611 1.739.611.593 0 1.178-.2 1.602-.53.416-.323.648-.743.648-1.22 0-.54-.168-.862-.405-1.103-.244-.248-.6-.448-1.073-.647H7a.75.75 0 01-.75-.75z"/>
-                    </svg>
-                </button>
-                <button class="text-style-button">
-                    <!-- link -->
-                    <svg class="text-style-icon" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M7 9.75A2.246 2.246 0 004.75 12 2.246 2.246 0 007 14.25h3a.75.75 0 010 1.5H7A3.746 3.746 0 013.25 12 3.746 3.746 0 017 8.25h3a.75.75 0 010 1.5H7zM13.25 9a.75.75 0 01.75-.75h3A3.746 3.746 0 0120.75 12 3.746 3.746 0 0117 15.75h-3a.75.75 0 010-1.5h3A2.246 2.246 0 0019.25 12 2.246 2.246 0 0017 9.75h-3a.75.75 0 01-.75-.75z"/>
-                        <path d="M9 11.25a.75.75 0 000 1.5h6a.75.75 0 000-1.5H9z"/>
-                    </svg>
-                </button>
-                <button class="text-style-button">
-                    <!-- code -->
-                    <svg class="text-style-icon" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M8.065 19.65l5.997-16.002 1.873.701-5.997 16.003-1.873-.701zM5.21 12.005l3-3-1.42-1.41-4.41 4.41 4.41 4.42 1.42-1.42-3-3zm12-4.41l-1.42 1.41 3 3-3 3 1.42 1.42 4.41-4.42-4.41-4.41z"/>
-                    </svg>
-                </button>
-                <div class="text-style-divider"></div>
-                <button class="text-style-dropdown">
-                    <!-- character-color -->
-                    <svg class="text-style-icon" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="m16.69 16.19-4-9c-.02-.03-.05-.05-.07-.09a.642.642 0 0 0-.1-.13c-.03-.04-.08-.06-.12-.09-.04-.02-.06-.05-.1-.07h-.02a.75.75 0 0 0-.16-.04.502.502 0 0 0-.12-.02c-.04 0-.08.01-.12.02-.06.01-.11.02-.17.04h-.02c-.03.02-.05.05-.08.07a.42.42 0 0 0-.14.09c-.04.04-.06.09-.09.13-.02.04-.05.06-.07.09l-4 9c-.17.38 0 .82.38.99a.763.763 0 0 0 .99-.39l.92-2.04h4.8l.91 2.05c.12.28.4.45.69.45.1 0 .21-.02.3-.06.38-.18.55-.62.39-1Zm-6.42-2.94L12 9.35l1.73 3.9h-3.46Z"/>
-                    </svg>
-                    <!-- caret-down -->
-                    <svg class="text-style-icon" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M8 9.75a.75.75 0 00-.586 1.219l4 5a.75.75 0 001.172 0l4-5A.75.75 0 0016 9.75H8z"/>
-                    </svg>
-                </button>
-            </div>
-            `,
-            style: {
-                left: `${x}px`,
-                top: `${y}px`,
-                width: 'auto',
-                height: 'auto',
-                zIndex: 100
-            }
+            template: '<Toolbar />'
         });
     });
 
