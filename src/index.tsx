@@ -23,6 +23,199 @@ const main = () => {
     });
 
     logseq.provideModel(createModel());
+
+        // open toolbar on selection
+        // close toolbar on blur
+
+        /* click handlers
+        {
+            'options': {
+                'paragraph': {
+                    'label': 'Paragraph',
+                    'hotkey': 'meta+alt+0',
+                    'encoding': ${selection}
+                },
+                'h1': {
+                    'label': 'Heading 1',
+                    'hotkey': 'meta+alt+1',
+                    'encoding': '# ' + ${selection}
+                },
+                'h2': {
+                    'label': 'Heading 2',
+                    'hotkey': 'meta+alt+2',
+                    'encoding': '## ' + ${selection}
+                },
+                'h3': {
+                    'label': 'Heading 3',
+                    'hotkey': 'meta+alt+3',
+                    'encoding': '### ' + ${selection}
+                },
+                'small': {
+                    'label': 'Small',
+                    'hotkey': 'meta+alt+4',
+                    'encoding': '[:span.small-paragraph "' + ${selection} + '"]'
+                },
+                'numList': {
+                    'label': 'Numbered List',
+                    'hotkey': 'meta+shift+7',
+                    'encoding': ${counter} + '. ' + ${selection}
+                },
+                'task': {
+                    'label': 'Task',
+                    'hotkey': 'meta+return',
+                    'encoding': '[] ' + ${selection}
+                },
+                'blockquote': {
+                    'label': 'Blockquote',
+                    'hotkey': 'meta+shift+>',
+                    'encoding': '> ' + ${selection}
+                },
+                'codeBlock': {
+                    'label': 'Code Block',
+                    'hotkey': '',
+                    'encoding': '```' + ${selection} + '```'
+                },
+                'bold': {
+                    'label': 'Bold',
+                    'hotkey': 'meta+b',
+                    'encoding': '**' + ${selection} + '**'
+                },
+                'italic': {
+                    'label': 'Italic',
+                    'hotkey': 'meta+i',
+                    'encoding': '_' + ${selection} + '_'
+                },
+                'underline': {
+                    'label': 'Underline',
+                    'hotkey': 'meta+u',
+                    'encoding': '[:span.text-underline "' + ${selection} + '"]'
+                },
+                'strikethrough': {
+                    'label': 'Strikethrough',
+                    'hotkey': 'meta+shift+x',
+                    'encoding': '~~' + ${selection} + '~~'
+                },
+                'link': {
+                    'label': 'Link',
+                    'hotkey': 'meta+l',
+                    'encoding': '[' + ${selection} + '](' + ${url} + ')'
+                },
+                'inlineCode': {
+                    'label': 'Inline Code',
+                    'hotkey': '',
+                    'encoding': '`' + ${selection} + '`'
+                },
+                'textDefault': {
+                    'label': 'Default',
+                    'hotkey': '',
+                    'encoding': ${selection} //need to make sure this doesn't alter block-level style
+                },
+                'textGray': {
+                    'label': 'Gray',
+                    'hotkey': '',
+                    'encoding': '[:span.text-gray "' + ${selection} + '"]'
+                },
+                'textOrange': {
+                    'label': 'Orange',
+                    'hotkey': '',
+                    'encoding': '[:span.text-orange "' + ${selection} + '"]'
+                },
+                'textRed': {
+                    'label': 'Red',
+                    'hotkey': '',
+                    'encoding': '[:span.text-red "' + ${selection} + '"]'
+                },
+                'textYellow': {
+                    'label': 'Yellow',
+                    'hotkey': '',
+                    'encoding': '[:span.text-yellow "' + ${selection} + '"]'
+                },
+                'textGreen': {
+                    'label': 'Green',
+                    'hotkey': '',
+                    'encoding': '[:span.text-green "' + ${selection} + '"]'
+                },
+                'textMint': {
+                    'label': 'Mint',
+                    'hotkey': '',
+                    'encoding': '[:span.text-mint "' + ${selection} + '"]'
+                },
+                'textCyan': {
+                    'label': 'Cyan',
+                    'hotkey': '',
+                    'encoding': '[:span.text-cyan "' + ${selection} + '"]'
+                },
+                'textBlue': {
+                    'label': 'Blue',
+                    'hotkey': '',
+                    'encoding': '[:span.text-blue "' + ${selection} + '"]'
+                },
+                'textIndigo': {
+                    'label': 'Indigo',
+                    'hotkey': '',
+                    'encoding': '[:span.text-indigo "' + ${selection} + '"]'
+                },
+                'textViolet': {
+                    'label': 'Violet',
+                    'hotkey': '',
+                    'encoding': '[:span.text-violet "' + ${selection} + '"]'
+                },
+                'highlightGray': {
+                    'label': 'Gray',
+                    'hotkey': '',
+                    'encoding': '[:span.highlight-gray "' + ${selection} + '"]'
+                },
+                'highlightOrange': {
+                    'label': 'Orange',
+                    'hotkey': '',
+                    'encoding': '[:span.highlight-orange "' + ${selection} + '"]'
+                },
+                'highlightRed': {
+                    'label': 'Red',
+                    'hotkey': '',
+                    'encoding': '[:span.highlight-red "' + ${selection} + '"]'
+                },
+                'highlightYellow': {
+                    'label': 'Yellow',
+                    'hotkey': '',
+                    'encoding': '[:span.highlight-yellow "' + ${selection} + '"]'
+                },
+                'highlightGreen': {
+                    'label': 'Green',
+                    'hotkey': '',
+                    'encoding': '[:span.highlight-green "' + ${selection} + '"]'
+                },
+                'highlightMint': {
+                    'label': 'Mint',
+                    'hotkey': '',
+                    'encoding': '[:span.highlight-mint "' + ${selection} + '"]'
+                },
+                'highlightCyan': {
+                    'label': 'Cyan',
+                    'hotkey': '',
+                    'encoding': '[:span.highlight-cyan "' + ${selection} + '"]'
+                },
+                'highlightBlue': {
+                    'label': 'Blue',
+                    'hotkey': '',
+                    'encoding': '[:span.highlight-blue "' + ${selection} + '"]'
+                },
+                'highlightIndigo': {
+                    'label': 'Indigo',
+                    'hotkey': '',
+                    'encoding': '[:span.highlight-indigo "' + ${selection} + '"]'
+                },
+                'highlightViolet': {
+                    'label': 'Violet',
+                    'hotkey': '',
+                    'encoding': '[:span.highlight-violet "' + ${selection} + '"]'
+                },
+            }
+        }
+
+            // To-do List
+            // Underline
+            */
     logseq.provideStyle(`
     :root {
         /*
@@ -365,7 +558,7 @@ const main = () => {
 
         logseq.provideUI({
             key: TOOLBAR_ID,
-            template: '<Toolbar />'
+            template: <Toolbar/>
         });
     });
 
