@@ -524,31 +524,31 @@ const main = () => {
         margin: 0 var(--space-2);
     }
 
-    .text-gray { color: var(--color-text-gray); }
-    .text-orange { color: var(--color-text-orange); }
-    .text-red { color: var(--color-text-red); }
-    .text-yellow { color: var(--color-text-yellow); }
-    .text-green { color: var(--color-text-green); }
-    .text-mint { color: var(--color-text-mint); }
-    .text-cyan { color: var(--color-text-cyan); }
-    .text-blue { color: var(--color-text-blue); }
-    .text-indigo { color: var(--color-text-indigo); }
-    .text-violet { color: var(--color-text-violet); }
+    .t-gray { color: var(--color-text-gray); }
+    .t-orange { color: var(--color-text-orange); }
+    .t-red { color: var(--color-text-red); }
+    .t-yellow { color: var(--color-text-yellow); }
+    .t-green { color: var(--color-text-green); }
+    .t-mint { color: var(--color-text-mint); }
+    .t-cyan { color: var(--color-text-cyan); }
+    .t-blue { color: var(--color-text-blue); }
+    .t-indigo { color: var(--color-text-indigo); }
+    .t-violet { color: var(--color-text-violet); }
 
-    [class^="highlight-"] {
+    .h-gray, .h-orange, .h-red, .h-yellow, .h-green, .h-mint, .h-cyan, .h-blue, .h-indigo, .h-violet {
         padding: 0 var(--space-3);
         border-radius: var(--space-3);
     }
-    .highlight-gray { background-color: var(--color-highlight-gray); }
-    .highlight-orange { background-color: var(--color-highlight-orange); }
-    .highlight-red { background-color: var(--color-highlight-red); }
-    .highlight-yellow { background-color: var(--color-highlight-yellow); }
-    .highlight-green { background-color: var(--color-highlight-green); }
-    .highlight-mint { background-color: var(--color-highlight-mint); }
-    .highlight-cyan { background-color: var(--color-highlight-cyan); }
-    .highlight-blue { background-color: var(--color-highlight-blue); }
-    .highlight-indigo { background-color: var(--color-highlight-indigo); }
-    .highlight-violet { background-color: var(--color-highlight-violet); }
+    .h-gray { background-color: var(--color-highlight-gray); }
+    .h-orange { background-color: var(--color-highlight-orange); }
+    .h-red { background-color: var(--color-highlight-red); }
+    .h-yellow { background-color: var(--color-highlight-yellow); }
+    .h-green { background-color: var(--color-highlight-green); }
+    .h-mint { background-color: var(--color-highlight-mint); }
+    .h-cyan { background-color: var(--color-highlight-cyan); }
+    .h-blue { background-color: var(--color-highlight-blue); }
+    .h-indigo { background-color: var(--color-highlight-indigo); }
+    .h-violet { background-color: var(--color-highlight-violet); }
   `);
 
     // parent.document.addEventListener("selectionchange", onSelectionChange)
